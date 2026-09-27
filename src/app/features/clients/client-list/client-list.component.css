@@ -1,80 +1,310 @@
-.container {
+.crm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* KPI Banner */
+.kpi-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.kpi-box {
   background: #ffffff;
-  padding: 24px;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-  max-width: 1080px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.kpi-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kpi-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.kpi-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 2px 0;
+}
+
+.kpi-sub {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Controls Toolbar */
+.controls-toolbar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.search-filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.custom-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 12px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.search-icon {
+  color: #94a3b8;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.custom-search input {
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
   width: 100%;
 }
 
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+.clear-btn {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: var(--estevez-blue);
+.status-filters {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-chip {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.filter-chip.active {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .new-client-button {
-  color: var(--estevez-blue) !important;
-  --mdc-protected-button-label-text-color: var(--estevez-blue);
-  --mdc-protected-button-container-color: transparent;
-  background-color: transparent !important;
-  box-shadow: none !important;
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
-.new-client-button mat-icon {
-  margin-right: 8px;
-  color: var(--estevez-blue);
+.loading-bar {
+  margin-top: -10px;
 }
 
-.new-client-button:hover {
-  background-color: color-mix(in srgb, var(--estevez-blue) 8%, transparent) !important;
+/* Table Card */
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-table {
+.crm-table {
   width: 100%;
   border-collapse: collapse;
 }
 
 .mat-mdc-header-cell {
-  background: var(--estevez-blue);
-  color: #333333;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 12px;
   font-weight: 700;
-  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e2e8f0;
 }
 
-.mat-mdc-cell,
-.mat-mdc-header-cell {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+.data-row {
+  transition: background-color 0.15s ease;
 }
 
-.mat-mdc-row:last-child .mat-mdc-cell {
-  border-bottom: none;
+.data-row:hover {
+  background-color: #f8fafc;
 }
 
-.mat-mdc-row:hover {
-  background: rgba(0, 136, 206, 0.05);
+.mat-mdc-cell {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
 }
+
+/* Cell Specifics */
+.clickable-cell {
+  cursor: pointer;
+}
+
+.client-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+}
+
+.client-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.client-role {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.company-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-text {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.contact-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-text {
+  color: #2563eb;
+  font-size: 12px;
+}
+
+.phone-text {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.account-value {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Status Pills */
+.status-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-active { background: #dcfce7; color: #15803d; }
+.status-vip { background: #fef3c7; color: #b45309; }
+.status-pending { background: #e0f2fe; color: #0369a1; }
+.status-inactive { background: #f1f5f9; color: #64748b; }
 
 .action-cell {
+  white-space: nowrap;
+}
+
+/* Empty Table State */
+.empty-table-cell {
+  padding: 48px 16px;
+  text-align: center;
+}
+
+.empty-state-box {
   display: flex;
-  gap: 8px;
-  padding: 8px 0;
+  flex-direction: column;
   align-items: center;
+  gap: 12px;
+  color: #64748b;
 }
 
-.action-cell mat-icon {
-  color: var(--estevez-blue);
-}
-
-.mat-elevation-z8 {
-  box-shadow: none;
+.empty-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #cbd5e1;
 }

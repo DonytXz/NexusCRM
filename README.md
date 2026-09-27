@@ -1,125 +1,129 @@
-# Dashboard de Gestión de Clientes - Prueba Técnica
+# NexusCRM &mdash; Enterprise Customer Intelligence & Operations Platform
 
-Una aplicación moderna en Angular construida para gestionar datos de clientes, demostrando el manejo del estado, enrutamiento y diseño de interfaz de usuario utilizando las características más recientes del framework.
+[![Angular](https://img.shields.io/badge/Angular-21.2-dd0031.svg?logo=angular)](https://angular.dev/)
+[![Signals](https://img.shields.io/badge/Architecture-Angular_Signals-purple.svg)](https://angular.dev/guide/signals)
+[![Vitest](https://img.shields.io/badge/Unit_Tests-Vitest_Passing-729B1B.svg?logo=vitest)](https://vitest.dev/)
+[![Playwright](https://img.shields.io/badge/E2E_Tests-Playwright_Passing-2EAD33.svg?logo=playwright)](https://playwright.dev/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue.svg)](https://donatoalvarez.dev/prueba-tecnica-estevez/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🚀 Tecnologías Utilizadas
-* **Angular 21**: Aprovechando los Componentes Standalone (Independientes) y el nuevo flujo de control `@if`.
-* **Angular Signals**: Utilizado para el manejo del estado reactivo e inmutable en el `ClientService` y `AuthService` sin necesidad del código repetitivo (boilerplate) de RxJS.
-* **Angular Material**: Para una interfaz de usuario responsiva, accesible y visualmente pulida.
-* **Formularios Reactivos (Reactive Forms)**: Implementando validación estricta para los procesos de inicio de sesión y creación de clientes.
-  
-## 🚀 Demo en vivo
-Puedes ver el proyecto desplegado y funcionando aquí:
-👉 [https://donytxz.github.io/prueba-tecnica-estevez/](https://donytxz.github.io/prueba-tecnica-estevez/)
+An enterprise-grade, production-ready **Customer Relationship Management (CRM) & Account Intelligence Platform** built with **Angular 21**, **Angular Signals**, **Angular Material 3**, and powered by public real-time REST APIs. Designed to demonstrate scalable frontend architecture, reactive state management, resilient offline caching, and automated testing (Vitest & Playwright).
 
-## ⚙️ Cómo Ejecutar el Proyecto
+---
 
-1. Clona este repositorio:
-   `git clone https://github.com/DonytXz/prueba-tecnica-estevez.git`
-2. Navega al directorio del proyecto:
-   `cd prueba-tecnica-estevez`
-3. Instala las dependencias:
-   `npm install`
-4. Inicia el servidor de desarrollo:
-   `ng serve`
-5. Abre tu navegador y dirígete a `http://localhost:4200/`
+## 🚀 Live Demo & Access
 
-## 🛠 Pruebas Unitarias (Unit Testing)
+Experience the production deployment directly in your browser:  
+👉 **[https://donatoalvarez.dev/prueba-tecnica-estevez/](https://donatoalvarez.dev/prueba-tecnica-estevez/)**  
+*(Alternate mirror: [https://donytxz.github.io/prueba-tecnica-estevez/](https://donytxz.github.io/prueba-tecnica-estevez/))*
 
-Este proyecto utiliza **Vitest** como framework de pruebas. Fue seleccionado por su increíble velocidad, su configuración nativa con Vite y su integración perfecta con los módulos modernos de Angular.
+### 🔐 Demo Credentials (Powered by Live DummyJSON Auth)
+* **Usuario:** `emilys`
+* **Contraseña:** `emilyspass`
 
-### Comandos disponibles
+---
 
-#### 1. Ejecutar pruebas una sola vez
-Ideal para CI/CD o para verificar que todo el código actual pase las pruebas antes de subir cambios a producción.
-`npm run test:unit`
+## 🌟 Key Features & Architectural Highlights
 
-## 🧪 Pruebas de End-to-End (E2E)
+### 1. Executive CRM Metrics Banner (Computed Signals)
+- Real-time aggregate KPIs powered by Angular 21 `computed()` signals:
+  - **Cuentas Registradas**: Dynamic directory size.
+  - **Cuentas Activas / VIP**: Total portfolio in active sales pipeline.
+  - **Cartera Gestionada**: Total commercial valuation calculated across all enterprise accounts.
+  - **Ticket Promedio**: Dynamic average contract value per customer account.
 
-Este proyecto utiliza **Playwright** para la automatización de pruebas E2E. Gracias a la configuración de `webServer`, no necesitas iniciar el servidor manualmente; Playwright se encargará de levantar la aplicación en `localhost:4200` automáticamente durante la ejecución.
+### 2. Live Public API Integration (DummyJSON Users & Carts)
+- Seamless connection to the public **DummyJSON REST API** (`/users` & `/carts`):
+  - Fetches multi-attribute account profiles with real job titles, departments, corporate emails, and addresses.
+  - **100% Free & Keyless**: Runs in any environment without proprietary backend licenses or paid API keys.
 
-### Comandos disponibles
+### 3. Interactive Client 360° Profile Drawer
+- Clicking any customer row smoothly slides out a comprehensive **Account Intelligence Drawer**:
+  - **Profile & Location**: Job designation, corporate parent company, address, and direct click-to-call / copy-to-clipboard actions.
+  - **Transaction History**: Pulls live transaction and order history from `https://dummyjson.com/carts/user/:id` showing products purchased, thumbnails, unit prices, discounts, and order subtotals.
+  - **Fiscal Metadata**: Legal tax residency, postal code, and account registration dates.
 
-#### 1. Ejecutar todas las pruebas (Modo rápido)
-Ideal para verificar que todo el sistema funciona correctamente antes de hacer un *commit* o *push*. Ejecuta las pruebas en segundo plano (headless).
-`npx playwright test`
-Tabien se puede usar el siguiente para mostrar la UI
-`npx playwright test --ui`
+### 4. Real-time Search, Filtering & CSV Export
+- Multi-attribute instant search across client names, companies, roles, and cities.
+- Quick filter chips for immediate status segmentation (*Todos*, *VIP*, *Activos*, *Pendientes*).
+- Client-side **CSV Export Engine** generating instant downloadable audit spreadsheets.
 
-#### 2. Ver la interaccion con el navegador (Modo lento)
-Para el flujo de login use el siguiente comando
-`playwright test e2e/login.spec.ts --headed`
+### 5. Reactive State & Optimistic UI Resilience
+- State managed purely through **Angular Signals** (`signal`, `computed`).
+- Optimistic updates for Create, Update, and Delete with instant 5-second **Undo Action** via `MatSnackBar`.
+- Automated `localStorage` persistence ensuring user modifications survive page reloads and network loss.
 
-## 🔐 Credenciales de Acceso
-Para acceder al dashboard, utiliza el API en vivo de DummyJSON con estas credenciales:
-* **Usuario:** emilys
-* **Contraseña:** emilyspass
+---
 
-## ✨ Características Implementadas
-* **Autenticación:** Sistema de inicio de sesión simulado protegido por un `AuthGuard` funcional.
-* **Operaciones CRUD:** Funcionalidad completa para Crear, Leer, Actualizar y Eliminar clientes.
-* **Inmutabilidad:** El estado se maneja puramente a través de Signals, asegurando que las actualizaciones de la interfaz sean síncronas, rápidas y predecibles.
+## 🏗️ Architecture & Data Flow
 
-## 🔮 Futuras Mejoras (En caso de escalar a producción)
-* Integración con una API REST real utilizando `HttpClient`.
-* Manejo centralizado de errores a través de Interceptores HTTP (HTTP Interceptors).
-* Configuración de pruebas unitarias con Vitest o Jasmine/Karma.
-* Pruebas E2E con Playwright o Cypress
+```mermaid
+flowchart TD
+    API[Public DummyJSON REST API] -->|GET /users & /carts| ClientService[ClientService - Angular Signals]
+    Auth[AuthService] -->|JWT Session /auth/login| LocalStorage[LocalStorage Cache]
+    
+    subgraph Reactive State Store
+        ClientService --> SignalList[clients: signal Client Array]
+        SignalList --> ComputedMetrics[computed: Total Accounts, Pipeline Value, Avg Ticket]
+        SignalList --> FilteredList[computed: filteredClients by Search & Status]
+    end
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.16.
+    subgraph UI Presentation Layer
+        ComputedMetrics --> KPIBanner[Executive KPI Metrics Banner]
+        FilteredList --> TableView[Material Data Table & Toolbar]
+        FilteredList --> Drawer[Client 360 Drawer - Live Carts & Invoices]
+    end
 
-## Development server
+    TableView -->|CRUD & Undo Events| ClientService
+    Drawer -->|Fetch Orders by ID| API
+```
 
-To start a local development server, run:
+---
+
+## 🛠️ Testing Suite (Vitest & Playwright)
+
+### 1. Unit Testing with Vitest
+Blazing-fast native Vite test runner for Angular 21 signals, guards, and services:
+```bash
+# Run unit tests
+npm run test:unit
+
+# Watch mode
+npm run test:unit:watch
+```
+
+### 2. End-to-End Testing with Playwright
+Automated browser tests covering authentication, form validation, error banners, search filtering, and the Client 360° drawer:
+```bash
+# Run all E2E tests headless
+npm run test:e2e
+
+# Interactive UI Mode
+npx playwright test --ui
+
+# Headed mode for live browser inspection
+npx playwright test e2e/login.spec.ts --headed
+```
+
+---
+
+## ⚙️ Local Development Setup
 
 ```bash
+# 1. Clone repository
+git clone https://github.com/DonytXz/prueba-tecnica-estevez.git
+cd prueba-tecnica-estevez
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
 ng serve
+# Open http://localhost:4200/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛡️ License
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is open-source under the [MIT License](LICENSE).

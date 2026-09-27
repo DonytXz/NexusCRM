@@ -1,9 +1,27 @@
 <div class="dashboard-wrapper">
   <header class="dashboard-header">
-    <img [src]="'assets/estevez-logo.png'" alt="Estevez" class="logo">
-    <button class="logout-button" type="button" (click)="logout()" title="Cerrar Sesión">
-      <mat-icon>power_settings_new</mat-icon>
-    </button>
+    <div class="brand-group">
+      <img [src]="'assets/estevez-logo.png'" alt="Estevez" class="logo">
+      <div class="brand-separator"></div>
+      <div class="portal-badge">
+        <span class="portal-title">NexusCRM</span>
+        <span class="portal-tag">Customer Intelligence Portal</span>
+      </div>
+    </div>
+
+    <div class="user-actions">
+      <div class="user-chip" *ngIf="authService.currentUser() as user">
+        <img [src]="user.image || 'assets/estevez-logo.png'" [alt]="user.username" class="user-avatar" />
+        <div class="user-text">
+          <span class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
+          <span class="user-role">Enterprise Operations</span>
+        </div>
+      </div>
+
+      <button class="logout-button" type="button" (click)="logout()" title="Cerrar Sesión">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </div>
   </header>
 
   <main class="dashboard-content">

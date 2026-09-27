@@ -1,0 +1,123 @@
+<div class="drawer-backdrop" [class.active]="isOpen" (click)="onClose()"></div>
+
+<aside class="drawer-container" [class.open]="isOpen" *ngIf="client">
+  <!-- Drawer Header -->
+  <div class="drawer-header">
+    <div class="header-main">
+      <img [src]="client.avatar || 'assets/estevez-logo.png'" [alt]="client.name" class="drawer-avatar">
+      <div class="header-titles">
+        <div class="name-status">
+          <h2>{{ client.name }}</h2>
+          <span class="status-badge" [ngClass]="'status-' + (client.status || 'Active').toLowerCase()">
+            {{ client.status || 'Active' }}
+          </span>
+        </div>
+        <p class="role-company">{{ client.role || 'Client Representative' }} &bull; <strong>{{ client.company }}</strong></p>
+      </div>
+    </div>
+    <button mat-icon-button (click)="onClose()" title="Cerrar Ficha">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Key Metrics Row -->
+  <div class="drawer-metrics">
+    <div class="metric-card">
+      <span class="m-label">Account Value</span>
+      <span class="m-value">${{ (client.accountValue || 50000) | number }}</span>
+    </div>
+    <div class="metric-card">
+      <span class="m-label">Region</span>
+      <span class="m-value">{{ client.city || 'Mexico' }} ({{ client.country || 'MX' }})</span>
+    </div>
+    <div class="metric-card">
+      <span class="m-label">Total Orders</span>
+      <span class="m-value">{{ client.ordersCount || 1 }} Active</span>
+    </div>
+  </div>
+
+  <!-- Contact Bar -->
+  <div class="contact-actions">
+    <button mat-stroked-button (click)="copyToClipboard(client.email, 'Email')">
+      <mat-icon>mail</mat-icon>
+      {{ client.email }}
+    </button>
+    <a mat-stroked-button [href]="'tel:' + client.phone">
+      <mat-icon>phone</mat-icon>
+      {{ client.phone }}
+    </a>
+  </div>
+
+  <!-- Drawer Body Tabs -->
+  <mat-tab-group class="drawer-tabs" animationDuration="200ms">
+    <!-- Tab 1: Orders & Purchase History from DummyJSON -->
+    <mat-tab label="Purchase History & Carts">
+      <div class="tab-content">
+        <div *ngIf="isLoadingCarts()" class="loading-state">
+          <mat-spinner diameter="32"></mat-spinner>
+          <span>Consultando órdenes en tiempo real...</span>
+        </div>
+
+        <div *ngIf="!isLoadingCarts() && carts().length === 0" class="empty-orders">
+          <mat-icon class="empty-icon">shopping_bag</mat-icon>
+          <p>No se encontraron compras recientes registradas para este cliente.</p>
+        </div>
+
+        <div *ngIf="!isLoadingCarts() && carts().length > 0" class="carts-list">
+          <div *ngFor="let cart of carts()" class="cart-card">
+            <div class="cart-header">
+              <span class="cart-id">Orden #{{ cart.id }}</span>
+              <strong class="cart-total">${{ cart.total | number }} USD</strong>
+            </div>
+
+            <div class="cart-products">
+              <div *ngFor="let prod of cart.products" class="product-item">
+                <img [src]="prod.thumbnail" [alt]="prod.title" class="prod-thumb">
+                <div class="prod-info">
+                  <span class="prod-title">{{ prod.title }}</span>
+                  <span class="prod-meta">Cant: {{ prod.quantity }} &bull; ${{ prod.price }} c/u</span>
+                </div>
+                <span class="prod-subtotal">${{ prod.total | number }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Tab 2: Profile & Governance -->
+    <mat-tab label="Account Details">
+      <div class="tab-content details-tab">
+        <div class="info-row">
+          <span class="info-label">ID de Registro:</span>
+          <span class="info-val"><code>{{ client.id }}</code></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Empresa Matriz:</span>
+          <span class="info-val">{{ client.company }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Dirección Fiscal:</span>
+          <span class="info-val">{{ client.address || 'Av. Insurgentes Sur 1602' }}, {{ client.city || 'Ciudad de México' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Código Postal:</span>
+          <span class="info-val">{{ client.postalCode || '03900' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Fecha de Alta:</span>
+          <span class="info-val">{{ client.joinedDate || '2024-01-15' }}</span>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <!-- Drawer Footer Actions -->
+  <div class="drawer-footer">
+    <button mat-button (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+      Editar Cliente
+    </button>
+  </div>
+</aside>
