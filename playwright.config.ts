@@ -51,9 +51,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'node e2e/test-server.mjs',
+    command: 'npm run build && node e2e/test-server.mjs',
     url: 'http://127.0.0.1:4200/NexusCRM/',
-    timeout: 60 * 1000,
+    timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
 });

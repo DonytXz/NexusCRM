@@ -34,13 +34,34 @@ const server = http.createServer((req, res) => {
   if (urlPath && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     const ext = path.extname(filePath);
     res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' });
-    return fs.createReadStream(filePath).pipe(res);
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.on('error', (err) => {
+      if (!res.headersSent) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+      }
+      res.end(`Internal Server Error: ${err.message}`);
+    });
+    return fileStream.pipe(res);
   }
 
   // SPA fallback
   const indexPath = path.join(distFolder, 'index.html');
+  if (!fs.existsSync(indexPath)) {
+    res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
+    return res.end(
+      `Error: Build output not found at ${indexPath}.\nPlease run 'npm run build' before starting the E2E test server.`
+    );
+  }
+
   res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-  fs.createReadStream(indexPath).pipe(res);
+  const indexStream = fs.createReadStream(indexPath);
+  indexStream.on('error', (err) => {
+    if (!res.headersSent) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+    }
+    res.end(`Internal Server Error: ${err.message}`);
+  });
+  indexStream.pipe(res);
 });
 
 server.listen(port, '127.0.0.1', () => {
