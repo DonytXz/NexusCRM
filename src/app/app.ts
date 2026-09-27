@@ -9,6 +9,6 @@ import { AuthService } from './core/services/auth.service';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('prueba-tecnica-estevez');
+  protected readonly title = signal('nexus-crm');
   protected readonly authService = inject(AuthService);
 }

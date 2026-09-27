@@ -1,16 +1,17 @@
 {
-  "name": "prueba-tecnica-estevez",
-  "version": "0.0.0",
+  "name": "nexus-crm",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "deploy": "ng build --configuration production && npx angular-cli-ghpages --dir=dist/nexus-crm/browser",
     "test": "ng test",
-    "test:unit": "vitest",
+    "test:unit": "vitest run",
     "test:e2e": "npx playwright test",
-    "test:unit:watch": "vitest --watch",
-    "serve:ssr:prueba-tecnica-estevez": "node dist/prueba-tecnica-estevez/server/server.mjs"
+    "test:unit:watch": "vitest",
+    "serve:ssr:nexus-crm": "node dist/nexus-crm/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.6.2",

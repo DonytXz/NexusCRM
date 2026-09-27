@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "prueba-tecnica-estevez": {
+    "nexus-crm": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,16 +17,15 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "baseHref": "/prueba-tecnica-estevez/",
-            "outputPath": "dist/prueba-tecnica-estevez",
+            "baseHref": "/NexusCRM/",
+            "outputPath": "dist/nexus-crm",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              "src/404.html"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -68,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "prueba-tecnica-estevez:build:production"
+              "buildTarget": "nexus-crm:build:production"
             },
             "development": {
-              "buildTarget": "prueba-tecnica-estevez:build:development"
+              "buildTarget": "nexus-crm:build:development"
             }
           },
           "defaultConfiguration": "development"

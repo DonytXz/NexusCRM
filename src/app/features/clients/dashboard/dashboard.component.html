@@ -1,17 +1,21 @@
 <div class="dashboard-wrapper">
   <header class="dashboard-header">
     <div class="brand-group">
-      <img [src]="'assets/estevez-logo.png'" alt="Estevez" class="logo">
-      <div class="brand-separator"></div>
+      <div class="nexus-logo-icon">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none">
+          <rect width="24" height="24" rx="6" fill="#0284c7"/>
+          <path d="M7 17V7l10 10V7" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div class="portal-badge">
         <span class="portal-title">NexusCRM</span>
-        <span class="portal-tag">Customer Intelligence Portal</span>
+        <span class="portal-tag">Customer Intelligence Platform</span>
       </div>
     </div>
 
     <div class="user-actions">
       <div class="user-chip" *ngIf="authService.currentUser() as user">
-        <img [src]="user.image || 'assets/estevez-logo.png'" [alt]="user.username" class="user-avatar" />
+        <img [src]="user.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face'" [alt]="user.username" class="user-avatar" />
         <div class="user-text">
           <span class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
           <span class="user-role">Enterprise Operations</span>

@@ -4,7 +4,7 @@
 [![Signals](https://img.shields.io/badge/Architecture-Angular_Signals-purple.svg)](https://angular.dev/guide/signals)
 [![Vitest](https://img.shields.io/badge/Unit_Tests-Vitest_Passing-729B1B.svg?logo=vitest)](https://vitest.dev/)
 [![Playwright](https://img.shields.io/badge/E2E_Tests-Playwright_Passing-2EAD33.svg?logo=playwright)](https://playwright.dev/)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue.svg)](https://donatoalvarez.dev/prueba-tecnica-estevez/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue.svg)](https://donatoalvarez.dev/NexusCRM/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 An enterprise-grade, production-ready **Customer Relationship Management (CRM) & Account Intelligence Platform** built with **Angular 21**, **Angular Signals**, **Angular Material 3**, and powered by public real-time REST APIs. Designed to demonstrate scalable frontend architecture, reactive state management, resilient offline caching, and automated testing (Vitest & Playwright).
@@ -14,8 +14,8 @@ An enterprise-grade, production-ready **Customer Relationship Management (CRM) &
 ## 🚀 Live Demo & Access
 
 Experience the production deployment directly in your browser:  
-👉 **[https://donatoalvarez.dev/prueba-tecnica-estevez/](https://donatoalvarez.dev/prueba-tecnica-estevez/)**  
-*(Alternate mirror: [https://donytxz.github.io/prueba-tecnica-estevez/](https://donytxz.github.io/prueba-tecnica-estevez/))*
+👉 **[https://donatoalvarez.dev/NexusCRM/](https://donatoalvarez.dev/NexusCRM/)**  
+*(Alternate mirror: [https://donytxz.github.io/NexusCRM/](https://donytxz.github.io/NexusCRM/))*
 
 ### 🔐 Demo Credentials (Powered by Live DummyJSON Auth)
 * **Usuario:** `emilys`
@@ -111,8 +111,8 @@ npx playwright test e2e/login.spec.ts --headed
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/DonytXz/prueba-tecnica-estevez.git
-cd prueba-tecnica-estevez
+git clone https://github.com/DonytXz/NexusCRM.git
+cd NexusCRM
 
 # 2. Install dependencies
 npm install

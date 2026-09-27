@@ -43,10 +43,10 @@ export class ClientService {
     {
       id: '1',
       name: 'Laura Martinez',
-      email: 'laura@estevez.com.mx',
+      email: 'laura@nexus-enterprise.io',
       country: 'MX',
       phone: '5512345678',
-      company: 'Grupo Estevez',
+      company: 'Nexus Enterprise',
       role: 'Chief Technology Officer',
       status: 'VIP',
       accountValue: 185000,

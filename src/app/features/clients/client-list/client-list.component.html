@@ -128,7 +128,7 @@
         <th mat-header-cell *matHeaderCellDef>Cliente / Titular</th>
         <td mat-cell *matCellDef="let element" class="clickable-cell" (click)="openClientDrawer(element)">
           <div class="client-cell">
-            <img [src]="element.avatar || 'assets/estevez-logo.png'" [alt]="element.name" class="avatar-img" />
+            <img [src]="element.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face'" [alt]="element.name" class="avatar-img" />
             <div class="client-text">
               <span class="client-name">{{ element.name }}</span>
               <span class="client-role">{{ element.role || 'Representante' }}</span>

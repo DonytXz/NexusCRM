@@ -102,7 +102,7 @@
 
 .logout-button {
   border: 0;
-  background: var(--estevez-blue, #0284c7);
+  background: var(--nexus-blue, #0284c7);
   color: white;
   padding: 0.5rem;
   border-radius: 999px;
@@ -115,7 +115,7 @@
 }
 
 .logout-button:hover {
-  background: color-mix(in srgb, var(--estevez-blue, #0284c7) 90%, black 10%);
+  background: color-mix(in srgb, var(--nexus-blue, #0284c7) 90%, black 10%);
   transform: translateY(-1px);
 }
 
